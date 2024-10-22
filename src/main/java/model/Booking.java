@@ -22,6 +22,7 @@ public class Booking {
 
     private String booking_id;
     private String user_id;
+    private String showId;
     private PaymentStatus paymentStatus;
     private int cost;
     private List<String> selectedSeatIds;

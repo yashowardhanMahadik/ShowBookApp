@@ -33,15 +33,18 @@ public class ShowService {
     public void setSeatLocks(List<String> selectedSeats, String showId){
         Map<String,Seat> seats = repo.getShows().get(showId).getTheaterSeats();
         selectedSeats.stream().map(id-> seats.get(id)).forEach(seat -> seat.setLockStatus(Seatlock.LOCKED));
+        repo.modifySeats(selectedSeats,showId,Seatlock.LOCKED);
     }
 
     public void releaseSeatLocks(List<String> selectedSeats, String showId){
         Map<String,Seat> seats = repo.getShows().get(showId).getTheaterSeats();
         selectedSeats.stream().map(id-> seats.get(id)).forEach(seat -> seat.setLockStatus(Seatlock.UNLOCKED));
+        repo.modifySeats(selectedSeats,showId,Seatlock.UNLOCKED);
     }
 
     public void blockSeatLocks(List<String> selectedSeats, String showId){
         Map<String,Seat> seats = repo.getShows().get(showId).getTheaterSeats();
         selectedSeats.stream().map(id-> seats.get(id)).forEach(seat -> seat.setLockStatus(Seatlock.BLOCKED));
+        repo.modifySeats(selectedSeats,showId,Seatlock.BLOCKED);
     }
 }

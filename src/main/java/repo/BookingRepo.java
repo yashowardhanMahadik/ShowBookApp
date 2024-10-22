@@ -6,19 +6,24 @@ import model.Booking;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 @AllArgsConstructor
 @Getter
 public class BookingRepo {
-    private List<Booking> bookings;
+    private Map<String,Booking> bookings;
 
     public void addBooking(Booking booking){
         if(bookings == null){
-            bookings = new ArrayList<Booking>();
+            bookings = new HashMap<>();
         }
-        bookings.add(booking);
+        bookings.put(booking.getBooking_id(),booking);
+    }
+
+    public Booking getBooking(String bookingId){
+        return bookings.get(bookingId);
     }
 
 }

@@ -2,14 +2,12 @@ package controller;
 
 import model.Booking;
 import model.PaymentStatus;
-import model.Seat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import service.BookingService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController("/booking")
